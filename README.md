@@ -7,6 +7,5 @@ Install extentions
 
 ```bash
   pip install -r requirements.txt
-  cd CanncionesSite
   py manage.py runserver
 ```

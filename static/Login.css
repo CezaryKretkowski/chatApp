@@ -1,0 +1,15 @@
+body{
+    height: 100vh;
+    background: url("/Resource/backgroundLogin.jpg") no-repeat;
+    background-size: cover;
+}
+
+.LoginCard{
+    margin-top: 20% !important;
+    background-color:rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(70px);
+}
+
+h1{
+ font-family: Arial, Helvetica, sans-serif;
+}

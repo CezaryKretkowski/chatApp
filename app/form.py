@@ -24,7 +24,7 @@ class RegistartionForm(ModelForm):
         fields = ['username','email','first_name','last_name']
         
 class UserForm(ModelForm):   
-    avatar = forms.ImageField()
+    
     
     def set_up(self):        
         self.fields['username'].label= 'User name'
@@ -37,5 +37,7 @@ class UserForm(ModelForm):
         fields = ['username','email','first_name','last_name']
         
     
-
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField(label='Password',widget=forms.PasswordInput(attrs={'class':'form-control','id':'password'}))
+    confirm_password = forms.CharField(label='Confirm password',widget=forms.PasswordInput(attrs={'class':'form-control','id':'confirmPass'}))
             

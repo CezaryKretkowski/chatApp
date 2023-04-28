@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    avatar = models.ImageField(default='default.jpg',upload_to='Resource/users')
+    avatar = models.ImageField('img',default='default.jpg',upload_to='Resource/users/')
     conversation =models.ManyToManyField('Conversation',blank=True)
     objects = models.Manager()
     
@@ -27,4 +27,4 @@ class Message(models.Model):
 class Conversation(models.Model):
     name = models.CharField(max_length=7000)
     room = models.ForeignKey(Room,related_name='Conversation',on_delete=models.CASCADE,null=True)
-    avatar = models.ImageField(default='default.jpg',upload_to='Resource/users')
+    avatar = models.ImageField(default='default.jpg',upload_to='Resource/users/')

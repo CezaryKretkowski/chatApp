@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import User,Profile,Room,Conversation,Message
 from django.core import serializers
 from django.core.files.storage import FileSystemStorage
-
+from django.contrib.auth.models import AnonymousUser
 
 def LoginView(request):
     form=LoginForm()
@@ -170,3 +170,11 @@ def Send(request):
     print(message)
     
     return HttpResponse('oki');
+
+def LogOut(request):
+    user=request.user
+    if isinstance(user,AnonymousUser):
+        return HttpResponseRedirect("/login")
+    else:
+        logout(request)
+        return render(request,'LogOut.html')

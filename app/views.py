@@ -178,3 +178,14 @@ def LogOut(request):
     else:
         logout(request)
         return render(request,'LogOut.html')
+    
+def Reset(request):
+    
+    if request.method=="POST":
+        if 'email' in request.POST:
+            try:
+                user = User.objects.get(email=request.POST['email']) 
+            except User.DoesNotExist:
+                return render(request,'error.html')
+            return render(request,'ConfirmCode.html')
+    return render(request,'ResetPassword.html')
